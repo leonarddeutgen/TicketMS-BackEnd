@@ -25,6 +25,9 @@ app.get("/api/tickets/:id", ticketController.getOneTicket);
 //Post ticket
 app.post("/api/newticket", ticketController.newTicket);
 
+//Delete ticket
+app.delete("/api/tickets/:id", ticketController.deleteTicket);
+
 app.listen(port, async () => {
   await migrationhelper.migrate();
   await sequelize.authenticate();

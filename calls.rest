@@ -18,3 +18,7 @@ GET http://localhost:3000/api/tickets
 
 ### Get one ticket
 GET http://localhost:3000/api/tickets/1
+
+
+### Delete ticket
+DELETE http://localhost:3000/api/tickets/11

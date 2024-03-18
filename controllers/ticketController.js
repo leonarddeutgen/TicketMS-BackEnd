@@ -46,9 +46,27 @@ const newTicket = async (req, res) => {
   }
 };
 
+//Dlete selected ticket
+const deleteTicket = async (req, res) => {
+  try {
+    const ticketToDelete = await Ticket.findOne({
+      where: { id: req.params.id },
+    });
+
+    if (!ticketToDelete) {
+      return res.status(404).json({ message: "Ticket finns ej" });
+    }
+    await ticketToDelete.destroy();
+    return res.status(200).json({ message: "Ticket har tagits bort" });
+  } catch (error) {
+    return res.status(500).json({ message: "Ojdå, något gick fel" });
+  }
+};
+
 //Export functions
 module.exports = {
   getAllTickets,
   newTicket,
   getOneTicket,
+  deleteTicket,
 };
