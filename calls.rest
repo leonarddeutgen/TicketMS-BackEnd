@@ -1,0 +1,20 @@
+### Create Ticket
+POST http://localhost:3000/api/newticket
+Content-Type: application/json; charset=utf-8
+
+{
+"name":"Chrille", 
+"title":"Skrivare", 
+"description":"Skrivare fungerar ej",
+"orderNo":20241103,
+"itemNo":6667899,
+"puoNo":"444",
+"color": "blue"
+}
+
+### Get all tickets
+GET http://localhost:3000/api/tickets
+
+
+### Get one ticket
+GET http://localhost:3000/api/tickets/1

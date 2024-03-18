@@ -18,7 +18,8 @@ module.exports = (sequelize, DataTypes) => {
       description: DataTypes.STRING,
       orderNo: DataTypes.INTEGER,
       itemNo: DataTypes.INTEGER,
-      puoNo: DataTypes.INTEGER,
+      puoNo: DataTypes.STRING,
+      color: DataTypes.STRING,
     },
     {
       sequelize,

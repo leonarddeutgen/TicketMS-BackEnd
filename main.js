@@ -1,5 +1,6 @@
 const { sequelize, ticket } = require("./models");
 const migrationhelper = require("./migrationhelper");
+const ticketController = require("./controllers/ticketController.js");
 const express = require("express");
 //const cors = require("cors");
 const app = express();
@@ -14,6 +15,15 @@ app.use(
     credentials: true,
   })
 );
+
+//Get all tickets
+app.get("/api/tickets", ticketController.getAllTickets);
+
+//Get one tickets
+app.get("/api/tickets/:id", ticketController.getOneTicket);
+
+//Post ticket
+app.post("/api/newticket", ticketController.newTicket);
 
 app.listen(port, async () => {
   await migrationhelper.migrate();
