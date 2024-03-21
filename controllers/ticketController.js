@@ -24,7 +24,7 @@ const getOneTicket = async (req, res) => {
   res.json(oneTicket);
 };
 
-//Get all tickets
+//Create new tickets
 const newTicket = async (req, res) => {
   const { name, title, description, orderNo, itemNo, puoNo, color } = req.body;
 
@@ -44,6 +44,22 @@ const newTicket = async (req, res) => {
     console.log(error);
     res.status(500).send("Server Error");
   }
+};
+
+//Edit ticket
+const editTicket = async (req, res) => {
+  const oneTicket = await Ticket.findOne({
+    where: { id: req.params.id },
+  });
+  oneTicket.id = req.body.id;
+  oneTicket.name = req.body.name;
+  oneTicket.title = req.body.title;
+  oneTicket.description = req.body.description;
+  oneTicket.orderNo = req.body.orderNo;
+  oneTicket.itemNo = req.body.itemNo;
+  oneTicket.puoNo = req.body.puoNo;
+  oneTicket.color = req.body.color;
+  await oneTicket.save();
 };
 
 //Dlete selected ticket
@@ -68,5 +84,6 @@ module.exports = {
   getAllTickets,
   newTicket,
   getOneTicket,
+  editTicket,
   deleteTicket,
 };

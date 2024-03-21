@@ -11,7 +11,7 @@ app.use(express.json());
 const cors = require("cors");
 app.use(
   cors({
-    origin: "http://localhost:5500",
+    origin: "http://localhost:5173",
     credentials: true,
   })
 );
@@ -24,6 +24,9 @@ app.get("/api/tickets/:id", ticketController.getOneTicket);
 
 //Post ticket
 app.post("/api/newticket", ticketController.newTicket);
+
+//Edit ticket
+app.put("/api/editticket/:id", ticketController.editTicket);
 
 //Delete ticket
 app.delete("/api/tickets/:id", ticketController.deleteTicket);

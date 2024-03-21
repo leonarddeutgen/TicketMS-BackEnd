@@ -3,13 +3,13 @@ POST http://localhost:3000/api/newticket
 Content-Type: application/json; charset=utf-8
 
 {
-"name":"Chrille", 
-"title":"Skrivare", 
-"description":"Skrivare fungerar ej",
+"name":"Diana", 
+"title":"Fel på Skrivare", 
+"description":"Skrivare på station 3 fungerar ej, kommer upp felmeddelande om att den inte hittar nätverk",
 "orderNo":20241103,
 "itemNo":6667899,
-"puoNo":"444",
-"color": "blue"
+"puoNo":"PUO-240056",
+"color": "Medium"
 }
 
 ### Get all tickets
@@ -21,4 +21,18 @@ GET http://localhost:3000/api/tickets/1
 
 
 ### Delete ticket
-DELETE http://localhost:3000/api/tickets/11
+DELETE http://localhost:3000/api/tickets/23
+
+### Edit ticket 
+PUT http://localhost:3000/api/editticket/1
+Content-Type: application/json; charset=utf-8
+
+{
+"name":"Leonard", 
+"title":"Fel på Skrivare", 
+"description":"Skrivare på station 3 fungerar ej, kommer upp felmeddelande om att den inte hittar nätverk",
+"orderNo":20241103,
+"itemNo":6667899,
+"puoNo":"PUO-240056",
+"color": "Medium"
+}
