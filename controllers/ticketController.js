@@ -26,7 +26,8 @@ const getOneTicket = async (req, res) => {
 
 //Create new tickets
 const newTicket = async (req, res) => {
-  const { name, title, description, orderNo, itemNo, puoNo, color } = req.body;
+  const { name, title, description, orderNo, itemNo, puoNo, color, done } =
+    req.body;
 
   try {
     await Ticket.create({
@@ -37,6 +38,7 @@ const newTicket = async (req, res) => {
       itemNo,
       puoNo,
       color,
+      done,
     });
 
     res.status(201).json({ name });
@@ -59,6 +61,7 @@ const editTicket = async (req, res) => {
   oneTicket.itemNo = req.body.itemNo;
   oneTicket.puoNo = req.body.puoNo;
   oneTicket.color = req.body.color;
+  oneTicket.done = req.body.done;
   await oneTicket.save();
 };
 
